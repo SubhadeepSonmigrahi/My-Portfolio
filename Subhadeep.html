@@ -1,0 +1,783 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subhadeep Sonmigrahi | Portfolio</title>
+
+    <style>
+        :root {
+            --bg: #08111f;
+            --panel: #101d30;
+            --text: #edf4ff;
+            --muted: #a8b7cc;
+            --accent: #65d6c4;
+            --blue: #78a9ff;
+            --line: rgba(190, 210, 240, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background:
+                radial-gradient(circle at 85% 5%, rgba(77,130,210,.18), transparent 28rem),
+                #08111f;
+            color: var(--text);
+            line-height: 1.65;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1080px, calc(100% - 40px));
+            margin: auto;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(8,17,31,.9);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        nav {
+            min-height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .brand span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* HERO SECTION */
+
+        .hero {
+            padding: 100px 0 82px;
+            display: grid;
+            grid-template-columns: 1.5fr .8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: clamp(45px, 6vw, 80px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+        }
+
+        h1 span {
+            color: var(--accent);
+        }
+
+        .hero-copy {
+            color: var(--muted);
+            max-width: 650px;
+            margin: 24px 0 30px;
+            font-size: 17px;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 18px;
+            border-radius: 9px;
+            border: 1px solid var(--line);
+            font-weight: bold;
+            transition: .2s;
+        }
+
+        .btn.primary {
+            background: var(--accent);
+            color: #07151c;
+            border-color: var(--accent);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .hero-card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 24px 70px rgba(0,0,0,.22);
+        }
+
+        .initials {
+            width: 76px;
+            height: 76px;
+            border-radius: 18px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--accent), var(--blue));
+            color: #07151c;
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .hero-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .quick-facts {
+            margin-top: 20px;
+        }
+
+        .quick-facts div {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            border-top: 1px solid var(--line);
+            padding-top: 10px;
+            margin-top: 10px;
+            font-size: 13px;
+        }
+
+        .quick-facts span {
+            color: var(--muted);
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 66px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .section-heading {
+            margin-bottom: 28px;
+        }
+
+        .section-heading p {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-top: 5px;
+        }
+
+        .about-text {
+            max-width: 850px;
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        /* CARDS */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: rgba(16,29,48,.85);
+            border: 1px solid var(--line);
+            border-radius: 15px;
+            padding: 23px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .meta {
+            color: var(--accent) !important;
+            font-size: 14px !important;
+            margin-bottom: 12px;
+        }
+
+        /* SKILLS */
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 14px;
+        }
+
+        .tag {
+            border: 1px solid rgba(101,214,196,.25);
+            background: rgba(101,214,196,.08);
+            color: #baf4e9;
+            border-radius: 7px;
+            padding: 6px 10px;
+            font-size: 13px;
+        }
+
+        /* PROJECT */
+
+        .project {
+            border-left: 3px solid var(--accent);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 12px;
+            margin: 22px 0;
+        }
+
+        .stat {
+            background: #14243a;
+            padding: 15px;
+            border-radius: 11px;
+        }
+
+        .stat strong {
+            display: block;
+            color: var(--accent);
+            font-size: 24px;
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* CONTACT */
+
+        .contact-panel {
+            background: linear-gradient(
+                135deg,
+                rgba(101,214,196,.12),
+                rgba(120,169,255,.10)
+            );
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .contact-panel p {
+            color: var(--muted);
+            margin-top: 5px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        footer {
+            padding: 25px 0;
+            color: var(--muted);
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE DESIGN */
+
+        @media(max-width: 760px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 70px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 0;
+                gap: 12px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+        }
+
+        @media(max-width: 430px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 45px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+        <nav class="container">
+
+            <a class="brand" href="#home">
+                SUBHADEEP<span>.</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- HERO SECTION -->
+
+    <main>
+
+        <div class="container hero" id="home">
+
+            <div>
+
+                <p class="eyebrow">Aspiring Data Professional</p>
+
+                <h1>
+                    Subhadeep<br>
+                    <span>Sonmigrahi</span>
+                </h1>
+
+                <p class="hero-copy">
+                    B.Sc. Data Science and Statistics student with an
+                    interest in statistical analysis, data visualization,
+                    and emerging AI technologies. I enjoy turning complex
+                    data into useful insights that support smarter
+                    decision-making.
+                </p>
+
+                <div class="actions">
+                    <a class="btn primary" href="#projects">
+                        Explore My Work
+                    </a>
+
+                    <a class="btn" href="mailto:subhadeepsonmigrahi@gmail.com">
+                        Contact Me
+                    </a>
+                </div>
+
+            </div>
+
+
+            <aside class="hero-card">
+
+                <div class="initials">SS</div>
+
+                <h3>Data Science & Statistics</h3>
+
+                <p>Christ (Deemed to be University), Bengaluru</p>
+
+                <div class="quick-facts">
+
+                    <div>
+                        <span>Degree</span>
+                        <strong>B.Sc.</strong>
+                    </div>
+
+                    <div>
+                        <span>Expected Completion</span>
+                        <strong>April 2029</strong>
+                    </div>
+
+                    <div>
+                        <span>Location</span>
+                        <strong>Bengaluru</strong>
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+
+        <!-- ABOUT -->
+
+        <section id="about">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <p>01 / Introduction</p>
+                    <h2 class="section-title">Career Objective</h2>
+                </div>
+
+                <p class="about-text">
+                    Aspiring data professional pursuing B.Sc. Data Science
+                    and Statistics (Honours with Research) at Christ
+                    University. Proficient in Python, statistical analysis,
+                    and data visualization, with practical project
+                    experience in large-scale data analysis and behavioral
+                    pattern recognition. Passionate about leveraging
+                    analytics and emerging AI technologies to solve
+                    real-world problems and support smarter
+                    decision-making.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- EDUCATION -->
+
+        <section id="education">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <p>02 / Academic Background</p>
+                    <h2 class="section-title">Education</h2>
+                </div>
+
+                <div class="grid">
+
+                    <article class="card">
+
+                        <h3>Christ (Deemed to be University)</h3>
+
+                        <p class="meta">
+                            Bengaluru, Karnataka · April 2029
+                        </p>
+
+                        <p>
+                            B.Sc. Data Science, Statistics
+                            (Honours with Research)
+                        </p>
+
+                    </article>
+
+
+                    <article class="card">
+
+                        <h3>Mugberia Gangadhar High School</h3>
+
+                        <p class="meta">
+                            Mugberia, West Bengal · May 2025
+                        </p>
+
+                        <p>
+                            Science Stream (PCMB)
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SKILLS -->
+
+        <section id="skills">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <p>03 / What I Work With</p>
+                    <h2 class="section-title">Skills & Interests</h2>
+                </div>
+
+                <div class="grid">
+
+                    <article class="card">
+
+                        <h3>Programming & Tools</h3>
+
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">R</span>
+                            <span class="tag">Excel</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Tableau</span>
+                            <span class="tag">Power BI</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="card">
+
+                        <h3>Data Skills</h3>
+
+                        <div class="tags">
+                            <span class="tag">Data Cleaning</span>
+                            <span class="tag">Data Visualization</span>
+                            <span class="tag">Basic Machine Learning</span>
+                            <span class="tag">Statistical Analysis</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="card">
+
+                        <h3>Languages</h3>
+
+                        <p>English — Professional</p>
+                        <p>Hindi — Communicative</p>
+                        <p>Bengali — Native</p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJECTS -->
+
+        <section id="projects">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <p>04 / Selected Work</p>
+                    <h2 class="section-title">Projects</h2>
+                </div>
+
+                <article class="card project">
+
+                    <h3>
+                        Exploratory Data Analysis &
+                        Statistical Modeling using R
+                    </h3>
+
+                    <p class="meta">
+                        Behavioral Data Analysis · R · Statistical Inference
+                    </p>
+
+                    <p>
+                        Analyzed 705 students across 110 countries to
+                        examine social media's impact on mental health
+                        and academic performance. Identified a strong
+                        negative correlation between daily usage and
+                        mental health scores, and segmented high-risk
+                        students using multivariate analysis. Validated
+                        findings via Chi-Square testing and communicated
+                        insights through scatter plots, bar charts,
+                        and boxplots.
+                    </p>
+
+                    <div class="stats">
+
+                        <div class="stat">
+                            <strong>705</strong>
+                            <span>Students Analyzed</span>
+                        </div>
+
+                        <div class="stat">
+                            <strong>110</strong>
+                            <span>Countries Represented</span>
+                        </div>
+
+                        <div class="stat">
+                            <strong>-0.801</strong>
+                            <span>Correlation (r)</span>
+                        </div>
+
+                    </div>
+
+                    <div class="tags">
+                        <span class="tag">R Programming</span>
+                        <span class="tag">Exploratory Data Analysis</span>
+                        <span class="tag">Chi-Square Test</span>
+                        <span class="tag">Multivariate Analysis</span>
+                        <span class="tag">Data Visualization</span>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- CERTIFICATIONS -->
+
+        <section id="certifications">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <p>05 / Continuous Learning</p>
+                    <h2 class="section-title">Certifications</h2>
+                </div>
+
+                <div class="grid">
+
+                    <article class="card">
+                        <h3>Deloitte Australia</h3>
+                        <p class="meta">
+                            Data Analytics Job Simulation
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Infosys Springboard</h3>
+                        <p class="meta">
+                            Basics of Python
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Amazon Web Services (AWS)</h3>
+                        <p class="meta">
+                            GenAI
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section id="contact">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <p>06 / Get In Touch</p>
+                    <h2 class="section-title">Let's Connect</h2>
+                </div>
+
+                <div class="contact-panel">
+
+                    <div>
+                        <h3>Have an opportunity or project in mind?</h3>
+
+                        <p>
+                            Feel free to reach out by email or connect
+                            with me professionally.
+                        </p>
+                    </div>
+
+                    <div class="contact-links">
+
+                        <a class="btn primary"
+                           href="mailto:subhadeepsonmigrahi@gmail.com">
+                            Email
+                        </a>
+
+                        <a class="btn"
+                           href="tel:+917584801120">
+                            Call
+                        </a>
+
+                        <!-- Add your LinkedIn profile URL -->
+                        <a class="btn"
+                           href="YOUR_LINKEDIN_URL"
+                           target="_blank">
+                            LinkedIn
+                        </a>
+
+                        <!-- Add your GitHub profile URL -->
+                        <a class="btn"
+                           href="YOUR_GITHUB_URL"
+                           target="_blank">
+                            GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container">
+            © 2026 Subhadeep Sonmigrahi · Built with HTML & CSS
+        </div>
+
+    </footer>
+
+</body>
+</html>
+
